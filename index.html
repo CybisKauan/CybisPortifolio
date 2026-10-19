@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kauan ybis Dev - desenvolvimento web e design de sites">
+    <meta name="theme-color" content="#050807">
+    <title>Kauan Cybis Dev - Desenvolvimento Web & Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+        theme: {
+            extend: {
+            colors: {
+                ink: '#050807',
+                panel: '#0a100e',
+                line: '#1b2924',
+                neon: '#00f59b',
+                muted: '#a6b4ae'
+            },
+            fontFamily: {
+                sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+            },
+            boxShadow: {
+                glow: '0 0 35px rgba(0,245,155,.12)'
+            }
+            }
+        }
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { color-scheme: dark; }
+        body { background: #050807; }
+        .grid-bg {
+        background-image: linear-gradient(rgba(0,245,155,.035) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(0,245,155,.035) 1px, transparent 1px);
+        background-size: 44px 44px;
+        mask-image: linear-gradient(to bottom, black, transparent 90%);
+        }
+        .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .project-card img { transition: transform .5s ease; }
+        .project-card:hover img { transform: scale(1.04); }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; left: 0; bottom: -8px; height: 2px; width: 0; background: #00f59b; transition: width .25s; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+        .reveal { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+<body class="font-sans text-white atialiased selection:bg-neon selection text-ink">
+    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div class="grid-bg absolute inset-0"></div>
+        <div class="absolute -right-48 top-40 h-96 w-96 rounded-full bg-emerald-500/5 blur-3xl"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 border-b border-white/5 bg-ink/85 backdrop-blur-xl">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8" aria-label="Navegação principal">
+            <a href="#inicio" class="flex items-center gap-3" aria-label="Kauan Dev, início">
+                <span class="text-2xl font-extrabold italic text-neon">K<span class="text-white">/</span></span>
+                <span class="text-sm font-bold tracking-wide sm:text-base">KauanCybis Dev</span>
+            </a>
+            <button id="menu-button" class="rounded-lg border border-white/10 p-2 text-white md:hidden" aria-label="Abrir menu" aria-expanded="false">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+            <div id="menu" class="absolute left-0 right-0 top-full hidden flex-col gap-5 border-b border-white/10 bg-ink px-6 py-6 md:static md:flex md:flex-row md:items-center md:gap-8 md:border-0 md:bg-transparent md:p-0">
+                <a class="nav-link text-sm text-gray-300 hover:text-neon" href="#inicio">Início</a>
+                <a class="nav-link text-sm text-gray-300 hover:text-neon" href="#projetos">Projetos</a>
+                <a class="nav-link text-sm text-gray-300 hover:text-neon" href="#servicos">Serviços</a>
+                <a class="nav-link text-sm text-gray-300 hover:text-neon" href="#sobre">Sobre</a>
+                <a class="nav-link text-sm text-gray-300 hover:text-neon" href="#contato">Contato</a>
+                <a href="#contato" class="inline-flex items-center justify-center gap-2 rounded-full border border-neon/70 px-5 py-2.5 text-sm font-semibold text-neon transition hover:bg-neon hover:text-ink">
+                <span>↗</span> Solicitar orçamento
+                </a>
+            </div>
+        </nav>
+
+    </header> 
+   <main>
+    <!-- Hero -->
+    <section id="inicio" class="relative isolate overflow-hidden">
+      <div class="absolute inset-0 -z-10">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85" alt="" class="h-full w-full object-cover opacity-20" fetchpriority="high">
+        <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/55"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/25"></div>
+      </div>
+      <div class="mx-auto grid min-h-[610px] max-w-7xl items-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[1.05fr_.95fr] lg:py-24">
+        <div class="reveal">
+          <p class="mb-6 flex items-center gap-3 text-xs font-bold uppercase tracking-[.22em] text-neon"><span class="h-px w-8 bg-neon"></span> Desenvolvedor Web & Designer</p>
+          <h1 class="max-w-2xl text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">Transformo ideias em experiências <span class="text-neon">digitais.</span></h1>
+          <p class="mt-6 max-w-xl text-base leading-7 text-gray-300 sm:text-lg">Sites modernos, rápidos e personalizados para o seu negócio, projeto ou marca. Do design ao código, eu cuido de tudo para você se destacar no digital.</p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href="#projetos" class="inline-flex items-center justify-center gap-3 rounded-full bg-neon px-6 py-3.5 text-sm font-bold text-ink transition hover:-translate-y-0.5 hover:shadow-glow">Ver projetos <span aria-hidden="true">→</span></a>
+            <a href="#contato" class="inline-flex items-center justify-center gap-3 rounded-full border border-neon/70 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-neon/10"><span aria-hidden="true">↗</span> Solicitar orçamento</a>
+          </div>
+          <div class="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-xs text-gray-400">
+            <span class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-neon"></span> Design responsivo</span>
+            <span class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-neon"></span> Código organizado</span>
+            <span class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-neon"></span> Foco no cliente</span>
+          </div>
+        </div>
+        <div class="reveal relative hidden lg:block">
+          <div class="absolute -inset-8 rounded-full bg-emerald-400/10 blur-3xl"></div>
+          <div class="relative rounded-2xl border border-white/10 bg-[#080d0b]/90 p-3 shadow-2xl shadow-black/50">
+            <div class="flex items-center gap-2 border-b border-white/10 px-3 pb-3">
+              <span class="h-2.5 w-2.5 rounded-full bg-red-400/80"></span><span class="h-2.5 w-2.5 rounded-full bg-yellow-300/80"></span><span class="h-2.5 w-2.5 rounded-full bg-neon/80"></span>
+              <span class="ml-3 font-mono text-xs text-gray-500">KauanCybis.dev / workspace</span>
+            </div>
+            <div class="grid grid-cols-[auto_1fr] gap-4 p-5 font-mono text-xs leading-7 sm:text-sm">
+              <div class="select-none text-gray-600">01<br>02<br>03<br>04<br>05<br>06<br>07<br>08</div>
+              <div class="overflow-hidden">
+                <p><span class="text-purple-300">const</span> <span class="text-sky-300">projeto</span> = {</p>
+                <p class="pl-5"><span class="text-neon">objetivo</span>: <span class="text-amber-200">'sua ideia'</span>,</p>
+                <p class="pl-5"><span class="text-neon">design</span>: <span class="text-amber-200">'sob medida'</span>,</p>
+                <p class="pl-5"><span class="text-neon">performance</span>: <span class="text-amber-200">'otimizada'</span>,</p>
+                <p class="pl-5"><span class="text-neon">experiência</span>: <span class="text-amber-200">'memorável'</span></p>
+                <p>};</p><p class="mt-4 text-gray-500">// Bora tirar do papel?</p>
+                <p class="mt-2"><span class="text-purple-300">return</span> <span class="text-neon">resultado</span><span class="animate-pulse">_</span></p>
+              </div>
+            </div>
+            <div class="mt-2 flex items-center justify-between rounded-xl border border-neon/10 bg-neon/[.04] px-4 py-3 text-xs"><span class="text-gray-400">STATUS DO PROJETO</span><span class="flex items-center gap-2 text-neon"><span class="h-2 w-2 rounded-full bg-neon"></span> Pronto para começar</span></div>
+          </div>
+          <p class="absolute -bottom-7 -right-3 rounded-lg border border-white/10 bg-panel px-4 py-3 text-xs text-gray-300 shadow-xl">✦ Grandes ideias merecem uma boa base digital.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="border-y border-white/10 bg-white/[.015]">
+      <div class="mx-auto grid max-w-7xl gap-0 px-5 sm:px-8 md:grid-cols-2 lg:grid-cols-4">
+        <article class="flex gap-4 border-b border-white/10 py-7 md:pr-6 lg:border-b-0 lg:border-r lg:py-9">
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-neon/70 text-xl text-neon">ϟ</span><div><h2 class="font-semibold">Sites rápidos</h2><p class="mt-2 text-sm leading-6 text-gray-400">Performance e otimização para uma navegação fluida.</p></div>
+        </article>
+        <article class="flex gap-4 border-b border-white/10 py-7 md:pl-6 lg:border-b-0 lg:border-r lg:py-9">
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-neon/70 text-xl text-neon">▣</span><div><h2 class="font-semibold">Responsivo</h2><p class="mt-2 text-sm leading-6 text-gray-400">Uma experiência consistente no celular, tablet e computador.</p></div>
+        </article>
+        <article class="flex gap-4 border-b border-white/10 py-7 md:pr-6 lg:border-b-0 lg:border-r lg:px-6 lg:py-9">
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-neon/70 text-xl text-neon">◇</span><div><h2 class="font-semibold">Boas práticas</h2><p class="mt-2 text-sm leading-6 text-gray-400">Estrutura clara, atenção à acessibilidade e segurança.</p></div>
+        </article>
+        <article class="flex gap-4 py-7 md:pl-6 lg:py-9">
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-neon/70 text-xl text-neon">◎</span><div><h2 class="font-semibold">Suporte</h2><p class="mt-2 text-sm leading-6 text-gray-400">Comunicação clara durante o projeto e após a entrega, conforme combinado.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projetos" class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+      <div class="reveal mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div><p class="mb-4 flex items-center gap-3 text-xs font-bold uppercase tracking-[.2em] text-neon"><span class="h-px w-8 bg-neon"></span> Projetos em destaque</p><h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Ideias que ganham forma.</h2><p class="mt-3 max-w-xl text-gray-400">Uma seleção de conceitos que mostram diferentes estilos e possibilidades para a web.</p></div>
+        <span class="text-sm text-gray-500">Projetos demonstrativos</span>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <article class="project-card reveal group overflow-hidden rounded-2xl border border-white/10 bg-panel transition hover:-translate-y-1 hover:border-neon/40">
+          <div class="relative aspect-[1.55] overflow-hidden bg-emerald-950"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80" alt="Visual de tecnologia e rede digital para o conceito Nexora Tech" loading="lazy" class="h-full w-full object-cover opacity-70"><div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div><span class="absolute bottom-4 left-4 rounded-full border border-neon/30 bg-black/50 px-3 py-1 text-xs text-neon">Site institucional</span></div>
+          <div class="p-5"><div class="flex items-center justify-between"><h3 class="text-xl font-semibold">Nexora Tech</h3><span class="text-neon transition group-hover:translate-x-1">↗</span></div><p class="mt-3 text-sm leading-6 text-gray-400">Conceito de site para uma empresa de tecnologia, com foco em clareza, performance e visual moderno.</p><div class="mt-5 flex flex-wrap gap-2"><span class="rounded-md bg-white/5 px-2 py-1 text-xs text-gray-400">Landing page</span><span class="rounded-md bg-white/5 px-2 py-1 text-xs text-gray-400">Responsivo</span></div></div>
+        </article>
+        <article class="project-card reveal group overflow-hidden rounded-2xl border border-white/10 bg-panel transition hover:-translate-y-1 hover:border-neon/40">
+          <div class="relative aspect-[1.55] overflow-hidden bg-lime-950"><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=80" alt="Produtos cosméticos em uma composição natural para o conceito Lunara" loading="lazy" class="h-full w-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-black/85 to-transparent"></div><span class="absolute bottom-4 left-4 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-xs text-white">Produtos naturais</span></div>
+          <div class="p-5"><div class="flex items-center justify-between"><h3 class="text-xl font-semibold">Lunara</h3><span class="text-neon transition group-hover:translate-x-1">↗</span></div><p class="mt-3 text-sm leading-6 text-gray-400">Conceito de landing page para cosméticos naturais, com identidade visual leve e foco no produto.</p><div class="mt-5 flex flex-wrap gap-2"><span class="rounded-md bg-white/5 px-2 py-1 text-xs text-gray-400">Produto</span><span class="rounded-md bg-white/5 px-2 py-1 text-xs text-gray-400">Design visual</span></div></div>
+        </article>
+        <article class="project-card reveal group overflow-hidden rounded-2xl border border-white/10 bg-panel transition hover:-translate-y-1 hover:border-neon/40">
+          <div class="relative aspect-[1.55] overflow-hidden bg-violet-950"><img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=900&q=80" alt="Setup de jogos para o conceito GameVerse" loading="lazy" class="h-full w-full object-cover"><div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div><span class="absolute bottom-4 left-4 rounded-full border border-violet-300/30 bg-black/50 px-3 py-1 text-xs text-violet-200">Landing page</span></div>
+          <div class="p-5"><div class="flex items-center justify-between"><h3 class="text-xl font-semibold">GameVerse</h3><span class="text-neon transition group-hover:translate-x-1">↗</span></div><p class="mt-3 text-sm leading-6 text-gray-400">Conceito para uma plataforma gamer, com atmosfera imersiva, chamadas de ação e navegação direta.</p><div class="mt-5 flex flex-wrap gap-2"><span class="rounded-md bg-white/5 px-2 py-1 text-xs text-gray-400">Entretenimento</span><span class="rounded-md bg-white/5 px-2 py-1 text-xs text-gray-400">UI design</span></div></div>
+        </article>
+      </div>
+      <p class="mt-5 text-xs text-gray-500">Observação: os exemplos acima são conceitos ilustrativos. Substitua-os pelos seus projetos reais quando estiverem prontos.</p>
+    </section>
+
+    <!-- Services -->
+    <section id="servicos" class="border-y border-white/10 bg-white/[.02]">
+      <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-24">
+        <div class="reveal mx-auto mb-12 max-w-2xl text-center"><p class="mb-4 text-xs font-bold uppercase tracking-[.2em] text-neon">Como posso ajudar</p><h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Soluções para tirar seu projeto do papel.</h2><p class="mt-4 leading-7 text-gray-400">Você traz a ideia; a gente define o caminho mais adequado para transformá-la em um site funcional.</p></div>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <article class="reveal rounded-2xl border border-white/10 bg-ink p-6 transition hover:border-neon/40"><span class="text-2xl text-neon">⌘</span><h3 class="mt-5 text-lg font-semibold">Landing pages</h3><p class="mt-2 text-sm leading-6 text-gray-400">Páginas focadas em apresentar uma oferta, captar contatos ou divulgar um lançamento.</p></article>
+          <article class="reveal rounded-2xl border border-white/10 bg-ink p-6 transition hover:border-neon/40"><span class="text-2xl text-neon">▤</span><h3 class="mt-5 text-lg font-semibold">Sites institucionais</h3><p class="mt-2 text-sm leading-6 text-gray-400">Uma presença profissional para empresas, profissionais e pequenos negócios.</p></article>
+          <article class="reveal rounded-2xl border border-white/10 bg-ink p-6 transition hover:border-neon/40"><span class="text-2xl text-neon">◇</span><h3 class="mt-5 text-lg font-semibold">Portfólios pessoais</h3><p class="mt-2 text-sm leading-6 text-gray-400">Apresente seus trabalhos, competências e formas de contato com identidade própria.</p></article>
+          <article class="reveal rounded-2xl border border-white/10 bg-ink p-6 transition hover:border-neon/40"><span class="text-2xl text-neon">▣</span><h3 class="mt-5 text-lg font-semibold">Páginas de produtos</h3><p class="mt-2 text-sm leading-6 text-gray-400">Destaque benefícios, imagens e informações importantes para seus clientes.</p></article>
+          <article class="reveal rounded-2xl border border-white/10 bg-ink p-6 transition hover:border-neon/40"><span class="text-2xl text-neon">⚙</span><h3 class="mt-5 text-lg font-semibold">Manutenção e melhorias</h3><p class="mt-2 text-sm leading-6 text-gray-400">Ajustes visuais, correções e novas seções para sites existentes, conforme escopo.</p></article>
+          <article class="reveal rounded-2xl border border-neon/30 bg-neon/[.04] p-6 shadow-glow"><span class="text-2xl text-neon">↗</span><h3 class="mt-5 text-lg font-semibold">Tem outra ideia?</h3><p class="mt-2 text-sm leading-6 text-gray-400">Vamos conversar sobre o que você precisa e avaliar a melhor solução.</p><a href="#contato" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-neon hover:gap-3">Descrever meu projeto <span>→</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About / skills -->
+    <section id="sobre" class="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:items-center lg:py-28">
+      <div class="reveal"><p class="mb-4 flex items-center gap-3 text-xs font-bold uppercase tracking-[.2em] text-neon"><span class="h-px w-8 bg-neon"></span> Sobre meu trabalho</p><h2 class="max-w-xl text-3xl font-bold tracking-tight sm:text-4xl">Mais do que código, é sobre criar soluções.</h2><p class="mt-5 max-w-xl leading-7 text-gray-400">Meu objetivo é desenvolver experiências digitais que tenham uma boa aparência, sejam fáceis de usar e façam sentido para cada projeto. Cada trabalho começa entendendo o que você precisa.</p><a href="#contato" class="mt-7 inline-flex items-center gap-2 font-semibold text-neon hover:gap-3">Vamos conversar <span>→</span></a></div>
+      <div class="reveal rounded-2xl border border-white/10 bg-panel p-6 sm:p-8">
+        <div class="mb-6 flex items-center justify-between"><div><p class="text-xs uppercase tracking-[.18em] text-gray-500">Ferramentas e tecnologias</p><h3 class="mt-2 text-xl font-semibold">Stack de desenvolvimento</h3></div><span class="rounded-full border border-neon/20 px-3 py-1 text-xs text-neon">Web</span></div>
+        <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          <div class="rounded-xl border border-white/10 bg-white/[.025] p-4"><span class="text-lg font-extrabold text-orange-400">5</span><p class="mt-2 text-sm font-medium">HTML</p><p class="mt-1 text-xs text-gray-500">Estrutura</p></div>
+          <div class="rounded-xl border border-white/10 bg-white/[.025] p-4"><span class="text-lg font-extrabold text-blue-400">3</span><p class="mt-2 text-sm font-medium">CSS</p><p class="mt-1 text-xs text-gray-500">Estilização</p></div>
+          <div class="rounded-xl border border-white/10 bg-white/[.025] p-4"><span class="text-lg font-extrabold text-yellow-300">JS</span><p class="mt-2 text-sm font-medium">JavaScript</p><p class="mt-1 text-xs text-gray-500">Interatividade</p></div>
+          <div class="rounded-xl border border-white/10 bg-white/[.025] p-4"><span class="text-lg font-extrabold text-sky-300">≈</span><p class="mt-2 text-sm font-medium">Tailwind CSS</p><p class="mt-1 text-xs text-gray-500">UI responsiva</p></div>
+          <div class="rounded-xl border border-white/10 bg-white/[.025] p-4"><span class="text-lg font-extrabold text-cyan-300">⚛</span><p class="mt-2 text-sm font-medium">React</p><p class="mt-1 text-xs text-gray-500">Interfaces</p></div>
+          <div class="rounded-xl border border-white/10 bg-white/[.025] p-4"><span class="text-lg font-extrabold text-neon">↗</span><p class="mt-2 text-sm font-medium">SEO básico</p><p class="mt-1 text-xs text-gray-500">Boas práticas</p></div>
+        </div>
+        <div class="mt-6 border-t border-white/10 pt-5"><p class="text-sm leading-6 text-gray-400"><span class="text-neon">↳</span> Tecnologias e funcionalidades são definidas conforme as necessidades de cada projeto.</p></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contato" class="relative isolate overflow-hidden border-y border-white/10">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-emerald-950/30 via-ink to-ink"></div>
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[.9fr_1.1fr] lg:py-24">
+        <div class="reveal"><p class="mb-4 flex items-center gap-3 text-xs font-bold uppercase tracking-[.2em] text-neon"><span class="h-px w-8 bg-neon"></span> Vamos conversar?</p><h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Pronto para tirar seu projeto do papel?</h2><p class="mt-5 max-w-lg leading-7 text-gray-400">Me conte o que você precisa. Vou entender sua ideia e conversar com você sobre os próximos passos.</p><div class="mt-8 space-y-4 text-sm text-gray-300"><p class="flex items-center gap-3"><span class="text-neon">✓</span> Atendimento direto e personalizado</p><p class="flex items-center gap-3"><span class="text-neon">✓</span> Escopo e prazo alinhados antes de começar</p><p class="flex items-center gap-3"><span class="text-neon">✓</span> Proposta de acordo com o seu projeto</p></div></div>
+        <form id="contact-form" class="reveal rounded-2xl border border-white/10 bg-[#080d0b]/90 p-5 sm:p-7">
+          <h3 class="text-xl font-semibold">Conte sobre seu projeto</h3><p class="mt-2 text-sm text-gray-400">Preencha os campos e continue a conversa pelo WhatsApp.</p>
+          <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            <label class="text-sm text-gray-300">Seu nome<input name="nome" required maxlength="80" autocomplete="name" placeholder="Como podemos te chamar?" class="mt-2 w-full rounded-xl border border-white/10 bg-white/[.03] px-4 py-3 text-sm text-white outline-none placeholder:text-gray-600 focus:border-neon/70"></label>
+            <label class="text-sm text-gray-300">E-mail (opcional)<input name="email" type="email" maxlength="120" autocomplete="email" placeholder="voce@email.com" class="mt-2 w-full rounded-xl border border-white/10 bg-white/[.03] px-4 py-3 text-sm text-white outline-none placeholder:text-gray-600 focus:border-neon/70"></label>
+            <label class="text-sm text-gray-300 sm:col-span-2">Tipo de projeto<select name="tipo" required class="mt-2 w-full rounded-xl border border-white/10 bg-[#0b110f] px-4 py-3 text-sm text-white outline-none focus:border-neon/70"><option value="">Selecione uma opção</option><option>Landing page</option><option>Site institucional</option><option>Portfólio</option><option>Página de produto</option><option>Manutenção de site</option><option>Outro projeto</option></select></label>
+            <label class="text-sm text-gray-300 sm:col-span-2">Conte um pouco da sua ideia<textarea name="mensagem" required minlength="10" maxlength="1200" rows="4" placeholder="O que você quer criar? Quais funcionalidades precisa?" class="mt-2 w-full resize-y rounded-xl border border-white/10 bg-white/[.03] px-4 py-3 text-sm text-white outline-none placeholder:text-gray-600 focus:border-neon/70"></textarea></label>
+          </div>
+          <button type="submit" class="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-neon px-6 py-3.5 font-bold text-ink transition hover:-translate-y-0.5 hover:shadow-glow">Enviar pelo WhatsApp <span>↗</span></button>
+          <p class="mt-3 text-center text-xs text-gray-500">O formulário abre o WhatsApp com a mensagem preenchida; não armazena os dados neste site.</p>
+          <p id="form-error" class="mt-2 hidden text-sm text-red-300" role="alert">Confira os campos antes de continuar.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mx-auto max-w-7xl px-5 py-8 sm:px-8">
+    <div class="flex flex-col justify-between gap-6 border-b border-white/10 pb-7 sm:flex-row sm:items-center">
+      <a href="#inicio" class="flex items-center gap-3"><span class="text-2xl font-extrabold italic text-neon">K<span class="text-white">/</span></span><span><span class="block text-sm font-bold">Kauan Dev</span><span class="mt-1 block text-xs text-gray-500">Desenvolvimento Web & Design</span></span></a>
+      <div class="flex flex-wrap gap-x-5 gap-y-3 text-sm text-gray-400"><a href="#inicio" class="hover:text-neon">Início</a><a href="#projetos" class="hover:text-neon">Projetos</a><a href="#servicos" class="hover:text-neon">Serviços</a><a href="#sobre" class="hover:text-neon">Sobre</a><a href="#contato" class="hover:text-neon">Contato</a></div>
+      <a href="#contato" class="text-sm text-neon hover:underline">Solicitar orçamento ↗</a>
+    </div>
+    <div class="flex flex-col justify-between gap-3 pt-5 text-xs text-gray-500 sm:flex-row"><p>© <span id="year"></span> Kauan Dev. Todos os direitos reservados.</p><p class="flex items-center gap-2"><span class="text-neon">▣</span> HTTPS disponível quando publicado em hospedagem com SSL/TLS.</p></div>
+  </footer>
+
+  <script>
+    // IMPORTANTE: substitua pelo número de WhatsApp com código do país e DDD, somente números.
+    // Exemplo de formato brasileiro: 5511999999999
+    const WHATSAPP_NUMBER = '5511913275070';
+
+    const menuButton = document.getElementById('menu-button');
+    const menu = document.getElementById('menu');
+
+    menuButton.addEventListener('click', () => {
+      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isExpanded));
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+    });
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          menu.classList.add('hidden');
+          menu.classList.remove('flex');
+          menuButton.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.getElementById('contact-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const error = document.getElementById('form-error');
+      if (!form.reportValidity()) {
+        error.classList.remove('hidden');
+        return;
+      }
+      error.classList.add('hidden');
+      const data = new FormData(form);
+      const name = String(data.get('nome') || '').trim();
+      const email = String(data.get('email') || '').trim();
+      const type = String(data.get('tipo') || '').trim();
+      const message = String(data.get('mensagem') || '').trim();
+      const text = [
+        'Olá, Kauan! Encontrei seu portfólio e gostaria de conversar sobre um projeto.',
+        '',
+        `Nome: ${name}`,
+        email ? `E-mail: ${email}` : '',
+        `Tipo de projeto: ${type}`,
+        `Ideia: ${message}`
+      ].filter(Boolean).join('\n');
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    });
+  </script> 
+</body>
+</html>
